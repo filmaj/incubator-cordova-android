@@ -28,6 +28,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.android.library.AndroidWebDriver;
 import org.openqa.selenium.android.library.ChromeClientWrapper;
+import org.openqa.selenium.android.library.DefaultChromeClient;
 import org.openqa.selenium.android.library.ViewClientWrapper;
 
 import android.test.ActivityInstrumentationTestCase2;
@@ -50,13 +51,12 @@ public class WebDriverTest extends ActivityInstrumentationTestCase2<CordovaDrive
     
     protected void setUp() throws Exception{
         super.setUp();
-        
         testActivity = this.getActivity();
         viewFactory = new CordovaViewFactory();
         appCode = new CordovaChromeClient(testActivity);
         viewHandler = new CordovaWebViewClient(testActivity);
         viewClientWrapper = new ViewClientWrapper("org.apache.cordova.CordovaWebViewClient", viewHandler);
-        chromeClientWrapper = new ChromeClientWrapper("org.apache.cordova.CordovaChromeClient", appCode);
+        chromeClientWrapper = new ChromeClientWrapper("org.apache.cordova.CordovaChromeClient", new DefaultChromeClient(appCode));
         testDriver = new AndroidWebDriver(testActivity, viewFactory, viewClientWrapper, chromeClientWrapper);
         testView = (CordovaWebView) testDriver.getWebView();
         viewHandler.setWebView(testView);
