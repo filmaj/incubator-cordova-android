@@ -35,12 +35,6 @@ public class CordovaDriverAction extends Activity implements CordovaInterface {
     }
 
     @Override
-    public void bindBackButton(boolean arg0) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
     public void cancelLoadUrl() {
         // TODO Auto-generated method stub
         
@@ -50,12 +44,6 @@ public class CordovaDriverAction extends Activity implements CordovaInterface {
     public Activity getActivity() {
         // TODO Auto-generated method stub
         return null;
-    }
-
-    @Override
-    public boolean isBackButtonBound() {
-        // TODO Auto-generated method stub
-        return false;
     }
 
     @Override

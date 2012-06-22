@@ -65,18 +65,6 @@ public class CordovaWebViewTestActivity extends Activity implements CordovaInter
     }
 
     @Override
-    public void bindBackButton(boolean override) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public boolean isBackButtonBound() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
     public Activity getActivity() {
         // TODO Auto-generated method stub
         return this;
