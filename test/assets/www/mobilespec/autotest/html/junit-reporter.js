@@ -105,7 +105,6 @@
       var counting = true;
       var cb = function() {
         counter--;
-        console.log('decrementing counter, '  + counter + ', counting? ' + counting);
         if (!counting && counter === 0) {
           document.getElementsByTagName('title')[0].innerHTML = 'done';
         }
@@ -123,12 +122,10 @@
           output += this.getNestedOutput(suite);
           output += "\n</testsuites>";
           counter++;
-          console.log('incrementing counter, '  + counter);
           this.writeFile(fileName, output, cb);
         } else {
           output += suite.output;
           counter++;
-          console.log('incrementing counter, '  + counter);
           this.writeFile(fileName, output, cb);
         }
       }

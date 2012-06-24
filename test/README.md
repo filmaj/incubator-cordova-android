@@ -28,3 +28,26 @@ automatically with the below command:
     adb shell am instrument -w org.apache.cordova.test/android.test.InstrumentationTestRunner
 
 (Optionally, you can also run in Eclipse)
+
+## Jenkins Integration ##
+
+Jenkins CI can be configured to build and track test results for the
+Android implementation. First set up a Build shell script action
+containing the following:
+
+   cd /Users/fil/src/incubator-cordova-android/test && \
+   ant clean && \
+   ant debug install && \
+   /Users/fil/SDKs/android-sdk-macosx/platform-tools/adb shell am instrument -w org.apache.cordova.test/android.test.InstrumentationTestRunner && \
+   /Users/fil/SDKs/android-sdk-macosx/platform-tools/adb pull /mnt/sdcard/Android/data/org.apache.cordova.test/cache ${WORKSPACE}/${JOB_NAME}/xmls
+
+Then set up a post-build "Publish JUnit test result report" action and
+point to the location of the XML files to:
+
+    xmls/*.xml
+
+### TODO ###
+
+- copy in latest mobile spec at build time (need to figure out how to
+  shim in junit jasmine reporter)
+- env variables for various paths (adb, cordova-android) 
