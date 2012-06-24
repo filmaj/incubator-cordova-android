@@ -15,7 +15,7 @@ public class HtmlNotFoundTest extends ActivityInstrumentationTestCase2<htmlnotfo
   private CordovaWebView testView;
 
   public HtmlNotFoundTest() {
-    super("org.apache.cordova.test",htmlnotfound.class);
+    super(htmlnotfound.class);
   }
   
   

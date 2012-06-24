@@ -50,7 +50,7 @@ public class GapClientTest extends ActivityInstrumentationTestCase2<CordovaWebVi
 		containerView = (FrameLayout) testActivity.findViewById(android.R.id.content);
 		innerContainer = (LinearLayout) containerView.getChildAt(0);
 		testView = innerContainer.getChildAt(0);
-		
+		this.testActivity.loadUrl("file:///android_asset/www/index.html");
 	}
 	
 	public void testPreconditions(){

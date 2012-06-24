@@ -40,6 +40,7 @@ public class CordovaTest extends
     super.setUp();
     testActivity = this.getActivity();
     testView = testActivity.findViewById(R.id.phoneGapView);
+    this.testActivity.loadUrl("file:///android_asset/www/index.html");
   }
 
   public void testPreconditions() {

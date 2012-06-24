@@ -27,9 +27,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class CordovaWebViewTestActivity extends Activity implements CordovaInterface {
+public class CordovaWebViewTestActivity extends Activity implements CordovaInterface, TitleListener {
 
-    CordovaWebView phoneGap;
+    public CordovaWebView phoneGap;
+    protected CordovaWebViewTestChromeClient chromeClient;
+    public boolean done = false;
 
     /** Called when the activity is first created. */
     @Override
@@ -38,10 +40,22 @@ public class CordovaWebViewTestActivity extends Activity implements CordovaInter
 
         setContentView(R.layout.main);
 
-        phoneGap = (CordovaWebView) findViewById(R.id.phoneGapView);
-
-        phoneGap.loadUrl("file:///android_asset/www/index.html");
-
+        this.phoneGap = (CordovaWebView) findViewById(R.id.phoneGapView);
+        this.chromeClient = new CordovaWebViewTestChromeClient(this, this.phoneGap, this);
+        this.phoneGap.setWebChromeClient(this.chromeClient);
+    }
+    @Override
+    /**
+     * Catch automation events via title.
+     */
+    public void onTitleChanged(String title) {
+        if (title.equals("done")) {
+            this.done = true;
+        }
+    }
+    
+    public void loadUrl(String url) {
+        this.phoneGap.loadUrl(url);
     }
 
     public void onDestroy()
@@ -81,4 +95,6 @@ public class CordovaWebViewTestActivity extends Activity implements CordovaInter
         // TODO Auto-generated method stub
         return null;
     }
+
+    
 }
