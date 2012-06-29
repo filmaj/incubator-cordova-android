@@ -23,6 +23,7 @@ import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.api.CordovaInterface;
 import org.apache.cordova.api.IPlugin;
 
+import android.content.Context;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -94,6 +95,11 @@ public class CordovaWebViewTestActivity extends Activity implements CordovaInter
     public Object onMessage(String id, Object data) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public Context getContext() {
+        return (Context)this;
     }
 
     

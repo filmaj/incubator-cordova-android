@@ -38,16 +38,9 @@ fires off the `jenkins.sh` script located in this folder.
 Then set up a post-build "Publish JUnit test result report" action and
 point the location of the XML files to:
 
-    xmls/*.xml
+    xmls/**/*.xml
 
 The shell script handles:
 
 - pulling in mobile-spec and modifying it appropriately for the CI
   environment
-
-### TODO ###
-
-- copy in latest mobile spec at build time (need to figure out how to
-  shim in junit jasmine reporter)
-- env variables for various paths (adb, cordova-android) 
-- figure out instrumenting on multiple connected devices

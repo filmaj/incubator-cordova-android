@@ -1,8 +1,8 @@
 package org.apache.cordova.test.mobilespec;
 
-public class AccelerometerAutoTest extends CordovaMobileSpecAutoTest {
-    public AccelerometerAutoTest() {
-        super("file:///android_asset/www/mobilespec/autotest/pages/accelerometer.html");
+public class AllAutoTests extends CordovaMobileSpecAutoTest {
+    public AllAutoTests() {
+        super("file:///android_asset/www/mobilespec/autotest/pages/all.html");
     }
     
     /**
