@@ -17,6 +17,5 @@
        under the License.
 */
 
-var VERSION='1.9.0rc1';
 var scripts = document.getElementsByTagName('script');
-var cordovaPath = scripts[0].src.replace('cordova.js', 'cordova-'+VERSION+'.js');
+var cordovaPath = scripts[0].src.replace('cordova.js', 'cordova.android.js');
