@@ -33,12 +33,13 @@ automatically with the below command:
 
 Jenkins CI can be configured to build and track test results for the
 Android implementation. First set up a build shell script action that
-fires off the `jenkins.sh` script located in this folder.
+fires off the `jenkins.sh` script located in this folder. This script is
+where the magic happens.
 
 Then set up a post-build "Publish JUnit test result report" action and
 point the location of the XML files to:
 
-    xmls/**/*.xml
+    **/*.xml
 
 The shell script handles:
 
