@@ -95,7 +95,7 @@
         failedCount += specs[i].didFail ? 1 : 0;
         specOutput += "\n  " + specs[i].output;
       }
-      suite.output = '\n<testsuite name="' + device.name + ' ' + this.getFullName(suite) + '" errors="0" tests="' + specs.length + '" failures="' + failedCount + '" time="' + suite.duration + '" timestamp="' + ISODateString(suite.startTime) + '">';
+      suite.output = '\n<testsuite name="[' + device.name + ' (' + device.platform + ' ' + device.version + ')] ' + this.getFullName(suite) + '" errors="0" tests="' + specs.length + '" failures="' + failedCount + '" time="' + suite.duration + '" timestamp="' + ISODateString(suite.startTime) + '">';
       suite.output += specOutput;
       suite.output += "\n</testsuite>";
     },
